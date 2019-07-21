@@ -9,6 +9,8 @@ Module Docstring
 #                                          ^cinemaId
 #                                                ^movieId
 
+# Ensure to use python3, as python2 will die if you redirect the output to a file if Unicode occurs.
+
 __author__ = "Your Name"
 __version__ = "0.1.0"
 __license__ = "MIT"
