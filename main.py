@@ -31,13 +31,13 @@ def main(args):
     movie_start = int(args.movie_start)
     errors_in_a_row = 0
 
-    for movie_id in range(movie_start, movie_start+1000):
+    for movie_id in range(movie_start, movie_start+50000):
         result = fetch(cinema_id, movie_id) 
         if result == False:
             #return
             errors_in_a_row += 1
 
-            if errors_in_a_row >= 200:
+            if errors_in_a_row >= 5000:
                 return
             
             #pass
@@ -71,7 +71,7 @@ def fetch(cinemaId, movieId):
     movie_hall = response.json()['session']['movieSession']['cinemaHall']
     movie_datetime = response.json()['session']['movieSession']['movieTime']
 
-    return cinema_name+";"+movie_name+";"+movie_hall+";"+movie_datetime
+    return cinema_name+";"+movie_name+";"+movie_hall+";"+movie_datetime+";"+str(movieId)
 
 if __name__ == "__main__":
     """ This is executed when run from the command line """
